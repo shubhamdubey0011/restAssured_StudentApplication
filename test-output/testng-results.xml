@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" total="1" passed="1">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Default suite" duration-ms="1068" started-at="2019-12-12T15:09:20Z" finished-at="2019-12-12T15:09:21Z">
+    <groups>
+    </groups>
+    <test name="Default test" duration-ms="1068" started-at="2019-12-12T15:09:20Z" finished-at="2019-12-12T15:09:21Z">
+      <class name="com.student.test.DeleteStudentInformation">
+        <test-method status="PASS" signature="init()[pri:0, instance:com.student.test.DeleteStudentInformation@457e2f02]" name="init" is-config="true" duration-ms="236" started-at="2019-12-12T20:39:20Z" finished-at="2019-12-12T20:39:20Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- init -->
+        <test-method status="PASS" signature="createStudentInfo()[pri:0, instance:com.student.test.DeleteStudentInformation@457e2f02]" name="createStudentInfo" duration-ms="825" started-at="2019-12-12T20:39:20Z" finished-at="2019-12-12T20:39:21Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- createStudentInfo -->
+      </class> <!-- com.student.test.DeleteStudentInformation -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>
