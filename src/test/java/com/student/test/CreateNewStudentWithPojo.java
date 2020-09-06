@@ -8,13 +8,15 @@ import java.util.List;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
+import com.github.javafaker.Faker;
 import com.student.model.Student;
 
+import groovy.util.logging.Log;
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 
-public class PoststudentInformation {
+public class CreateNewStudentWithPojo {
 
 	@BeforeClass
 	public static void init() {
@@ -25,21 +27,24 @@ public class PoststudentInformation {
 
 	@Test
 	public static void createStudentInfo() {
-		List<String>	courses=new ArrayList<String>();
+
+		Faker fkdata = new Faker();
+		
+		List<String> courses = new ArrayList<String>();
+		Student studentdata = new Student();
 		courses.add("demo1");
 		courses.add("demo3");
 		courses.add("demo6");
 
-		Student studentdata = new Student();
-		studentdata.setFirstName("test1");
-		studentdata.setLastName("user1");
-		studentdata.setEmail("testuser11@example.com");
+		studentdata.setFirstName(fkdata.name().firstName());
+		studentdata.setLastName(fkdata.name().lastName());
+		studentdata.setEmail(fkdata.name().lastName()+fkdata.name().firstName()+"@"+"mallinator");
 		studentdata.setProgramme("Courses");
 		studentdata.setCourses(courses);
 
-		//given().contentType(ContentType.JSON).when().body(studentdata).post().then().statusCode(201);
-		Response response = given().contentType(ContentType.JSON).when().body(studentdata).post();
-		response.then().statusCode(200);
+		// given().contentType(ContentType.JSON).when().body(studentdata).post().then().statusCode(201);
+		Response response = given().contentType(ContentType.JSON).when().log().all().body(studentdata).post();
 		System.out.println(response.body().prettyPrint());
+		response.then().statusCode(201);
 	}
 }

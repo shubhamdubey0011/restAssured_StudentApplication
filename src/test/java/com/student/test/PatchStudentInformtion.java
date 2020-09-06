@@ -33,7 +33,7 @@ public class PatchStudentInformtion {
 		studentdata.setLastName("Dubey");
 		studentdata.setEmail("Shubham0011@gmail.com");
 		studentdata.setProgramme("QA_Courses");
-		studentdata.setCourses(courses);
+		//studentdata.setCourses(courses);
 
 		given().contentType(ContentType.JSON).when().body(studentdata).patch().then().statusCode(201);
 	}

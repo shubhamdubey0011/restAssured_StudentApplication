@@ -3,6 +3,7 @@ package com.student.test;
 import static io.restassured.RestAssured.given;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -23,11 +24,11 @@ public class PutStudentInformation {
 
 	@Test
 	public static void createStudentInfo() {
-		String[] courses = new String[8];
-		courses[0]="adasda";
-		courses[1]="asdas";
-		courses[2]="asdasd";
-		courses[3]="rere";
+		//String[] courses = new String[8];
+		List<String> courses = new ArrayList<String>();
+		courses.add("demo1");
+		courses.add("demo3");
+		courses.add("demo6");
 
 		Student studentdata = new Student();
 		studentdata.setFirstName("Shubham");

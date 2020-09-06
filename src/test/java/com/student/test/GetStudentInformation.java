@@ -19,16 +19,16 @@ public class GetStudentInformation {
 	{
 		RestAssured.basePath="/student";
 		RestAssured.baseURI="http://localhost";
-		RestAssured.port=8085;
+		RestAssured.port=9090;
 	}
-	@Test(enabled = true,priority = 0)
+	@Test(enabled = false,priority = 0)
 	public static void getstudentAllInformation()
 	{
 		Response response = given().when().get("/list");
 		//response.body().prettyPrint();
 		response.then().statusCode(200);
 	}
-	@Test(enabled = true,priority = 1)
+	@Test(enabled = false,priority = 1)
 	public static void getStudentInfo()
 	{
 		Response response = given().when().get("/1");
@@ -38,7 +38,7 @@ public class GetStudentInformation {
 	@Test(enabled = true,priority = 2)
 	public static void getFilteredStudentInfo()
 	{
-		Response response = given().param("programme", "Mechanical Engineering").param("limit", "5").when().get("/list");
+		Response response = given().param("programme", "Mechanical Engineering").param("limit", "5").when().log().all().get("/list");
 		response.body().prettyPeek();
 		response.then().statusCode(200);
 	}
