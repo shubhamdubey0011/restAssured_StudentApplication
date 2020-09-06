@@ -26,6 +26,6 @@ public class DeleteStudentInformation {
 		
 		
 
-		given().contentType(ContentType.JSON).when().delete("/101").then().statusCode(204);
+		given().contentType(ContentType.JSON).when().delete("/105").then().statusCode(204);
 	}
 }

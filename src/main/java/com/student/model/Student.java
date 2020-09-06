@@ -1,19 +1,28 @@
 package com.student.model;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.List;
 
-public class Student implements Serializable
-{
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = -6918939819426414749L;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-	public Student(){}
-	
-	public Student(String firtName, String lastName, String email, String programme,String[] courses ) {
+@JsonIgnoreProperties(ignoreUnknown = true)
+public class Student implements Serializable {
+
+	private static final long serialVersionUID = -6918939819426414749L;
+	private String firstName;
+
+	private String lastName;
+
+	private List<String> courses;
+
+	private String programme;
+
+	private String email;
+
+	public Student() {
+	}
+
+	public Student(String firtName, String lastName, String email, String programme, List<String> courses) {
 		super();
 		this.firstName = firtName;
 		this.lastName = lastName;
@@ -22,70 +31,50 @@ public class Student implements Serializable
 		this.courses = courses;
 	}
 
-	 private String firstName;
+	public String getFirstName() {
+		return firstName;
+	}
 
-	    private String lastName;
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
 
-	    private String[] courses;
+	public String getLastName() {
+		return lastName;
+	}
 
-	    private String programme;
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
 
-	    private String email;
+	public List<String> getCourses() {
+		return courses;
+	}
 
-	    public String getFirstName ()
-	    {
-	        return firstName;
-	    }
+	public void setCourses(List<String> courses) {
+		this.courses = courses;
+	}
 
-	    public void setFirstName (String firstName)
-	    {
-	        this.firstName = firstName;
-	    }
+	public String getProgramme() {
+		return programme;
+	}
 
-	    public String getLastName ()
-	    {
-	        return lastName;
-	    }
+	public void setProgramme(String programme) {
+		this.programme = programme;
+	}
 
-	    public void setLastName (String lastName)
-	    {
-	        this.lastName = lastName;
-	    }
+	public String getEmail() {
+		return email;
+	}
 
-	    public String[] getCourses ()
-	    {
-	        return courses;
-	    }
+	public void setEmail(String email) {
+		this.email = email;
+	}
 
-	    public void setCourses (String[] courses)
-	    {
-	        this.courses = courses;
-	    }
+	@Override
+	public String toString() {
+		return "Student [firstName = " + firstName + ", lastName = " + lastName + ", courses = " + courses
+				+ ", programme = " + programme + ", email = " + email + "]";
+	}
 
-	    public String getProgramme ()
-	    {
-	        return programme;
-	    }
-
-	    public void setProgramme (String programme)
-	    {
-	        this.programme = programme;
-	    }
-
-	    public String getEmail ()
-	    {
-	        return email;
-	    }
-
-	    public void setEmail (String email)
-	    {
-	        this.email = email;
-	    }
-
-	    @Override
-	    public String toString()
-	    {
-	        return "Student [firstName = "+firstName+", lastName = "+lastName+", courses = "+courses+", programme = "+programme+", email = "+email+"]";
-	    }
-	
 }

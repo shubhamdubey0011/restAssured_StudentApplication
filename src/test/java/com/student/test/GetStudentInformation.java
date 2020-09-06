@@ -1,5 +1,7 @@
 package com.student.test;
 
+import static org.testng.Assert.assertTrue;
+
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
@@ -19,24 +21,24 @@ public class GetStudentInformation {
 		RestAssured.baseURI="http://localhost";
 		RestAssured.port=9090;
 	}
-	@Test
+	@Test(enabled = false,priority = 0)
 	public static void getstudentAllInformation()
 	{
 		Response response = given().when().get("/list");
 		//response.body().prettyPrint();
 		response.then().statusCode(200);
 	}
-	@Test
+	@Test(enabled = false,priority = 1)
 	public static void getStudentInfo()
 	{
 		Response response = given().when().get("/1");
 		//response.body().prettyPrint();
 		response.then().statusCode(200);
 	}
-	@Test
+	@Test(enabled = true,priority = 2)
 	public static void getFilteredStudentInfo()
 	{
-		Response response = given().param("programme", "Mechanical Engineering").param("limit", "5").when().get("/list");
+		Response response = given().param("programme", "Mechanical Engineering").param("limit", "5").when().log().all().get("/list");
 		response.body().prettyPeek();
 		response.then().statusCode(200);
 	}
